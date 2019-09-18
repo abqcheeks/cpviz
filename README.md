@@ -1,5 +1,5 @@
 ```
-Call Path Visualizer - see a graph of the call flow for
+Call Plan Visualizer - see a graph of the call flow for
 any Inbound Route.
 ```
 ### What?
