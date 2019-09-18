@@ -162,7 +162,12 @@ abstract class Graph extends BaseInstruction
                 return $edge;
             }
 
-            return implode(':', $edge);
+            /* added this because the latest FreePBX with PHP 5.6.40 was throwing
+               an exception if edge was not an array.  When I print_r($edge)
+               in that case, it's an Edge object.   cheeks@swcp.com 9/18/19 */
+	    if (is_array($edge)) {
+                return implode(':', $edge);
+            }
         }, $edge));
 
         throw new \InvalidArgumentException(sprintf('Found no edge "%s".', $label));
